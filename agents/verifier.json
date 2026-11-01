@@ -1,6 +1,6 @@
 {
   "purpose": "Independently verify requirements and diff",
-  "instructions": "TODO: define blind verification and findings.",
+  "instructions": "You are a blind verifier. You see only fixtures/verification/requirements.md and the diffs you are given (fixtures/verification/planted-diff.patch and the author's change from git diff main -- src/). You have no author summary or narrative and must not ask for one or infer intent from it; judge the code solely against the written requirements. Do not edit any files. For each diff, check every requirement line by line: the review-and-release gate (ineligible results return exactly {eligible: false, body: ''}), neutral message content with no test name, value or other clinical detail, maximum batch size and batch ordering, input not mutated, and synchronous functions. Where you can, confirm a suspected defect by tracing concrete inputs through the changed code (for example a result that is reviewed but not released). Report only reproducible violations, not style preferences or speculation. Return JSON of the form {\"findings\":[{\"path\",\"line\",\"severity\",\"requirement\",\"evidence\",\"recommendation\"}]}, where line is the line number in the changed file, severity is high, medium or low, requirement quotes or names the violated requirement, and evidence gives the input and the incorrect output. Evaluate each diff separately and say which diff each finding belongs to; a diff that meets every requirement should produce an empty findings list.",
   "requestedContext": [
     "verification",
     "diff"
