@@ -1,5 +1,55 @@
 {
-  "requirements": [],
-  "unresolved": [],
-  "sources": []
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "statement": "Maximum batch size: 20 messages.",
+      "source": "fixtures/research/provider.md"
+    },
+    {
+      "id": "REQ-002",
+      "statement": "Rate limit: 50 message requests per second to the provider.",
+      "source": "fixtures/research/provider.md"
+    },
+    {
+      "id": "REQ-003",
+      "statement": "Retry transient errors using bounded retries only.",
+      "source": "fixtures/research/provider.md"
+    },
+    {
+      "id": "REQ-004",
+      "statement": "Never send duplicate notifications for the same result version (sends must be idempotent per result version, including across retries).",
+      "source": "fixtures/research/provider.md"
+    },
+    {
+      "id": "REQ-005",
+      "statement": "A notification may be sent only after the result has both completed clinical review and been released; if either condition is missing, no notification is sent.",
+      "source": "fixtures/research/privacy.md"
+    },
+    {
+      "id": "REQ-006",
+      "statement": "Message content must be neutral, for example \"An update is available in your secure portal.\"",
+      "source": "fixtures/research/privacy.md"
+    },
+    {
+      "id": "REQ-007",
+      "statement": "Message content must contain no clinical content: no diagnosis, test name, result value, medication or treatment, and no other result detail.",
+      "source": "fixtures/research/privacy.md"
+    }
+  ],
+  "unresolved": [
+    {
+      "question": "Which delivery channel should notifications use? Per policy, this is not to be inferred by engineering.",
+      "owner": "product/privacy"
+    }
+  ],
+  "sources": [
+    {
+      "path": "fixtures/research/provider.md",
+      "section": "Provider revision 4 — current"
+    },
+    {
+      "path": "fixtures/research/privacy.md",
+      "section": "Notification policy"
+    }
+  ]
 }
